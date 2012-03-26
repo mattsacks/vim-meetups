@@ -1,0 +1,188 @@
+// mixins {{{
+=transition($property: all, $time: 0.3s, $method: linear)
+  transition:         $property $time $method
+  -moz-transition:    $property $time $method
+  -ms-transition:     $property $time $method
+  -o-transition:      $property $time $method
+  -webkit-transition: $property $time $method
+// END mixins }}}
+
+// general {{{
+h2
+  small
+    font-size: 30px !important
+
+h4
+  font-size: 1.5em !important
+
+h5
+  font-size: 1.1em !important
+
+small
+  color: #9C9C9C !important
+
+ul li
+  margin-bottom: 5px
+  margin-top: 5px
+
+li.important
+  color: red
+
+  div
+    color: gray
+// END general }}}
+
+// nav menu {{{
+nav#nav
+  +transition(opacity, 0.2s, ease-in)
+  background: rgba(255, 255, 255, 0.6)
+  font-size: 18px
+  left: 15px
+  line-height: 37px
+  opacity: 0
+  position: fixed
+  top: 140px
+  z-index: 10
+
+  &.show
+    opacity: 1
+
+  li
+    +transition(color, 0.2s, ease-in)
+    
+    &.active
+      color: red
+
+  ul.subnav
+    // 0.45 is the time for a section.slide to slide
+    +transition(all, 0.45s, linear)
+    font-size: 0.75em
+    line-height: 0
+    opacity: 0
+
+    &.active
+      line-height: 25px
+      opacity: 1
+
+    li
+      position: relative
+      right: -10px
+// END nav menu }}}
+
+// slides {{{
+// give some space for the navigation bar
+section.slide
+  &:not(:first-child)
+    margin-left: 50px
+  
+.talk-slide
+  h4,h5
+    small
+      font-size: 0.8em
+      margin-left: 20px
+
+// #1
+#intro
+  h4
+    margin-bottom: 50px
+
+// #2
+#aboutme
+  h4
+    margin-left: 60px
+    margin-top: 50px
+
+    small
+      font-size: 18px !important
+  h5
+    margin-top: 50px
+
+img.logo
+  margin-left: 0px
+  margin-top: 48px
+  position: absolute
+
+// #3
+#meetup
+  img
+    margin-left: 0
+
+// #4
+#talk-title
+  h5
+    margin-bottom: 20px
+    
+    &.space
+      margin-bottom: 60px
+  
+  .code-img
+    border-radius: 3px
+
+#tpope-code
+  margin-left: 25px
+
+// #5
+#talk-whatis
+  @extend #talk-title
+
+  code
+    display: inline-block
+    font-size: 0.8em
+    margin-left: 20px
+    margin-top: 5px
+    padding: 3px 5px
+
+  small code
+    margin-left: 0
+
+// #6
+#talk-steps
+  @extend #talk-whatis
+
+  h5
+    margin-bottom: 5px
+
+  code, .code-img
+    vertical-align: top
+    margin-left: 0
+    
+  .code-img
+    &:not(:first-child)
+      display: inline-block
+
+    &.one-line
+      vertical-align: top
+
+
+  #first-autocmd
+    display: block
+
+// #7
+#talk-examples
+  @extend #talk-title
+
+  .code-img
+    margin-left: 0
+    vertical-align: top
+
+// #8
+#talk-customization
+  @extend #talk-examples
+
+// #9
+#talk-resources
+  a
+    text-decoration: underline
+    color: #404040
+
+  ul li
+    @extend h5
+
+// #10
+#questions
+  h5
+    margin-bottom: 30px
+
+// END slides }}}
+
+// vim: fdm=marker

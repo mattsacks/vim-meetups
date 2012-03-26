@@ -1,0 +1,231 @@
+!!!
+
+%html.csstransitions.csstransforms
+
+  %head
+    %link{:rel => 'stylesheet', :href=>'deck.js/core/deck.core.css'}
+    %link{:rel => 'stylesheet', :id=>'style-theme-link', :href=>'deck.js/themes/style/swiss.css'}
+    %link{:rel => 'stylesheet', :id=>'transition-theme-link', :href=>'deck.js/themes/transition/horizontal-slide.css'}
+
+    %link{:rel => 'stylesheet', :href=>'../mattsa.github.com/views/bootstrap.min.css'}
+    %link{:rel => 'stylesheet', :href=>'styles.css'}
+
+    %script{:src=>'deck.js/jquery-1.7.min.js'}
+    %script{:src => 'deck.js/core/deck.core.js'}
+    :javascript
+      // initialize deck.js
+      $(function() {
+        $.deck('.slide')
+      });
+    %script{:src => 'index.js'}
+
+    %script
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+
+
+  %body.deck-container
+    %section#intro.slide
+      %h2
+        Vim User's Group:wq
+        %small
+          \#1
+
+      %h4 We'll be talking exclusively about the Vim text editor
+
+      %h5 Going down:
+      %ul#stuff-to-cover
+        %li About me
+        %li What this meetup is for
+        %li.important
+          %div VimScript and why it's not that scary
+        %li Qustions, comments?
+        %li (optional) I'll talk about other stuff to fill in the hour
+
+    %nav#nav
+      %ul
+        %li.main-nav About Me
+        %li.main-nav Purpose Of This
+        %li.main-nav
+          VimScript Talk
+          %ul.subnav
+            %li What is Vimscript
+            %li The Basics
+            %li Examples of Use
+            %li Customization & Hacking
+            %li Resources and Support
+        %li.main-nav Questions
+
+    %section#aboutme.slide
+      %h2
+        Me (Matt Sacks)
+      %img#simple-logo.logo{:src => 'images/simple.png'}
+      %h4
+        I'm a front-end engineer at Simple
+      %img#wolfram-logo.logo{:src => 'images/spikey.png'}
+      %h4
+        I used to work at Wolfram|Alpha
+      %img#vim-logo.logo{:src => 'images/vim.png'}
+      %h4
+        I like Vim
+      %h5
+        I'm on twitter
+        %a#twitter{:href => "http://twitter.com/mattsa"} @mattsa
+        and github
+        %a#github{:href => "http://github.com/mattsa"} /mattsa
+
+    %section#meetup.slide
+      %h2 Vim User's Group:wq
+      %h6 (pending title)
+
+      %ul
+        %li This is mostly just for fun
+        %li Worth sharing cool things
+        %li To annoy co-workers less
+        %img{:src => 'images/vim-guy.png'}
+        %li I just want to see what happens
+
+    %section#talk-title.talk-slide.slide
+      %h2 VimScript and Why It's Not Scary
+
+      %h5
+        General consensus is that VimScript sucks
+        %br
+        %small A total ghetto, weird obtuse syntax, ShitScript
+
+      %h5
+        You want to write a plugin and decide to take a look at @tpope's code
+        %br
+        %small Then you see this
+        %img#tpope-code{:src => 'images/tpope-code.png'}
+
+      %h5.space
+        Some douchebag's .vimrc or plugin library is cramping your style
+        %br
+        %small You probably have no clue what went in there and what's going on
+
+      %h5
+        But I'm going to tell you it's not that bad
+        %br
+        %small You've already written VimScript even if you don't know it
+
+      %h5
+        It has a quirky api but the language itself is pretty flexible
+        %br
+        %small I think it's pretty fun
+
+    %section#talk-whatis.talk-slide.slide
+      %h2 What is that VimL thing on GitHub?
+
+      %h5
+        It's just the name for functions you use to script to ex commands in Vim
+        %br
+        %small
+          If you've written any lines in your .vimrc, that's VimScript
+        %br
+        %code :split
+        %code :wq
+        %code :%s/foo/bar/g
+
+      %h5 It has types: an array is called a List and a hashmap is a Dictionary
+
+      %h5
+        Based on script-local functions and regular expressions
+        %br
+        %small
+          Perl-style syntax is available with
+          %code \v
+
+
+      %h5 You use it to do pretty much anything in Vim
+
+    %section#talk-steps.talk-slide.slide
+      %h2 Baby Steps
+
+      %h5
+        Create a variable
+        %br
+        %img.code-img{:src => 'images/first-variable.png'}
+        %img.code-img{:src => 'images/first-list.png'}
+
+      %h5
+        Go through a loop
+        %br
+        %img.code-img{:src => 'images/loop-code.png'}
+        %img#one-loop.code-img.one-line{:src => 'images/oneline-loop-code.png'}
+
+      %h5
+        Call a function
+        %br
+        %img.code-img{:src => 'images/call-function.png'}
+
+      %h5
+        Write a command
+        %br
+        %img.code-img{:src => 'images/first-command.png'}
+
+      %h5
+        Execute a file
+        %br
+        %img.code-img{:src => 'images/source.png'}
+        %img#first-autocmd.code-img{:src => 'images/first-autocmd.png'}
+
+    %section#talk-examples.talk-slide.slide
+      %h2 What can I write with this?
+
+      %h5
+        Let's delete all
+        %code < span >
+        tags and put them in a string
+        %br
+        %img.code-img{:src => 'images/span-list.png'}
+        %img.code-img{:src => 'images/removespans.png'}
+
+    %section#talk-customization.talk-slide.slide
+      %h2 That's cool.. but why?
+
+      %h5
+        Make custom stuff to automate repetitive actions
+        %br
+        %img.code-img{:src => 'images/tabtoggle.png'}
+        %img.code-img{:src => 'images/css-sort.png'}
+
+      %h5
+        Tailor to your workflow
+        %br
+        %img.code-img{:src => 'images/top-grep.png'}
+        %img.code-img{:src => 'images/gcached.png'}
+
+    %section#talk-resources.talk-slide.slide
+      %h2 I'm already stuck
+
+      %h4 Plenty of resources available to help you learn
+
+      %ul
+        %li #vim on Freenode
+        %li
+          %code :help {whatever}
+          %code :helpgrep {regex}
+          %code :help vim-script
+        %li
+          VimCasts (
+          %a vimcasts.org
+          )
+        %li
+          %a http://learnvimscriptthehardway.stevelosh.com/
+          or
+          %a bit.ly/vim-script
+        %li Reading other plugin code from GitHub & vim.org
+        %li
+          Use the built in debugger with
+          %code :debug call Function()
+        %li #vim on Freenode
+
+    %section#questions.slide
+      %h2 Closing Remarks
+
+      %h5 Thanks for coming!
+      %h5 Feel free to ask me questions anytime
+      %h5 Any input on the meetup? Things you'd like to see?
+      %h5 Questions or comments about VimScript?
+
+-# vim:fdm=indent fdn=3 fml=5 fdl=2

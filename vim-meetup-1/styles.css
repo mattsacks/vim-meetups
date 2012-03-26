@@ -1,0 +1,128 @@
+h2 small {
+  font-size: 30px !important; }
+
+h4 {
+  font-size: 1.5em !important; }
+
+h5, #talk-resources ul li {
+  font-size: 1.1em !important; }
+
+small {
+  color: #9c9c9c !important; }
+
+ul li {
+  margin-bottom: 5px;
+  margin-top: 5px; }
+
+li.important {
+  color: red; }
+  li.important div {
+    color: gray; }
+
+nav#nav {
+  transition: opacity 0.2s ease-in;
+  -moz-transition: opacity 0.2s ease-in;
+  -ms-transition: opacity 0.2s ease-in;
+  -o-transition: opacity 0.2s ease-in;
+  -webkit-transition: opacity 0.2s ease-in;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  left: 15px;
+  line-height: 37px;
+  opacity: 0;
+  position: fixed;
+  top: 140px;
+  z-index: 10; }
+  nav#nav.show {
+    opacity: 1; }
+  nav#nav li {
+    transition: color 0.2s ease-in;
+    -moz-transition: color 0.2s ease-in;
+    -ms-transition: color 0.2s ease-in;
+    -o-transition: color 0.2s ease-in;
+    -webkit-transition: color 0.2s ease-in; }
+    nav#nav li.active {
+      color: red; }
+  nav#nav ul.subnav {
+    transition: all 0.45s linear;
+    -moz-transition: all 0.45s linear;
+    -ms-transition: all 0.45s linear;
+    -o-transition: all 0.45s linear;
+    -webkit-transition: all 0.45s linear;
+    font-size: 0.75em;
+    line-height: 0;
+    opacity: 0; }
+    nav#nav ul.subnav.active {
+      line-height: 25px;
+      opacity: 1; }
+    nav#nav ul.subnav li {
+      position: relative;
+      right: -10px; }
+
+section.slide:not(:first-child) {
+  margin-left: 50px; }
+
+.talk-slide h4 small, .talk-slide h5 small, .talk-slide #talk-resources ul li small, #talk-resources ul .talk-slide li small {
+  font-size: 0.8em;
+  margin-left: 20px; }
+
+#intro h4 {
+  margin-bottom: 50px; }
+
+#aboutme h4 {
+  margin-left: 60px;
+  margin-top: 50px; }
+  #aboutme h4 small {
+    font-size: 18px !important; }
+#aboutme h5, #aboutme #talk-resources ul li, #talk-resources ul #aboutme li {
+  margin-top: 50px; }
+
+img.logo {
+  margin-left: 0px;
+  margin-top: 48px;
+  position: absolute; }
+
+#meetup img {
+  margin-left: 0; }
+
+#talk-title h5, #talk-whatis h5, #talk-steps h5, #talk-examples h5, #talk-customization h5, #talk-title #talk-resources ul li, #talk-resources ul #talk-title li, #talk-whatis #talk-resources ul li, #talk-resources ul #talk-whatis li, #talk-steps #talk-resources ul li, #talk-resources ul #talk-steps li, #talk-examples #talk-resources ul li, #talk-resources ul #talk-examples li, #talk-customization #talk-resources ul li, #talk-resources ul #talk-customization li {
+  margin-bottom: 20px; }
+  #talk-title h5.space, #talk-whatis h5.space, #talk-steps h5.space, #talk-examples h5.space, #talk-customization h5.space, #talk-title #talk-resources ul li.space, #talk-resources ul #talk-title li.space, #talk-whatis #talk-resources ul li.space, #talk-resources ul #talk-whatis li.space, #talk-steps #talk-resources ul li.space, #talk-resources ul #talk-steps li.space, #talk-examples #talk-resources ul li.space, #talk-resources ul #talk-examples li.space, #talk-customization #talk-resources ul li.space, #talk-resources ul #talk-customization li.space {
+    margin-bottom: 60px; }
+#talk-title .code-img, #talk-whatis .code-img, #talk-steps .code-img, #talk-examples .code-img, #talk-customization .code-img {
+  border-radius: 3px; }
+
+#tpope-code {
+  margin-left: 25px; }
+
+#talk-whatis code, #talk-steps code {
+  display: inline-block;
+  font-size: 0.8em;
+  margin-left: 20px;
+  margin-top: 5px;
+  padding: 3px 5px; }
+#talk-whatis small code, #talk-steps small code {
+  margin-left: 0; }
+
+#talk-steps h5, #talk-steps #talk-resources ul li, #talk-resources ul #talk-steps li {
+  margin-bottom: 5px; }
+#talk-steps code, #talk-steps .code-img {
+  vertical-align: top;
+  margin-left: 0; }
+#talk-steps .code-img:not(:first-child) {
+  display: inline-block; }
+#talk-steps .code-img.one-line {
+  vertical-align: top; }
+#talk-steps #first-autocmd {
+  display: block; }
+
+#talk-examples .code-img, #talk-customization .code-img {
+  margin-left: 0;
+  vertical-align: top; }
+
+#talk-resources a {
+  text-decoration: underline;
+  color: #404040; }
+
+#questions h5, #questions #talk-resources ul li, #talk-resources ul #questions li {
+  margin-bottom: 30px; }

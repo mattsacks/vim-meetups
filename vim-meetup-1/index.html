@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class='csstransitions csstransforms'>
+  <head>
+    <link href='deck.js/core/deck.core.css' rel='stylesheet' />
+    <link href='deck.js/themes/style/swiss.css' id='style-theme-link' rel='stylesheet' />
+    <link href='deck.js/themes/transition/horizontal-slide.css' id='transition-theme-link' rel='stylesheet' />
+    <link href='../mattsa.github.com/views/bootstrap.min.css' rel='stylesheet' />
+    <link href='styles.css' rel='stylesheet' />
+    <script src='deck.js/jquery-1.7.min.js'></script>
+    <script src='deck.js/core/deck.core.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        // initialize deck.js
+        $(function() {
+          $.deck('.slide')
+        });
+      //]]>
+    </script>
+    <script src='index.js'></script>
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+  </head>
+  <body class='deck-container'>
+    <section class='slide' id='intro'>
+      <h2>
+        Vim User's Group:wq
+        <small>
+          #1
+        </small>
+      </h2>
+      <h4>We'll be talking exclusively about the Vim text editor</h4>
+      <h5>Going down:</h5>
+      <ul id='stuff-to-cover'>
+        <li>About me</li>
+        <li>What this meetup is for</li>
+        <li class='important'>
+          <div>VimScript and why it's not that scary</div>
+        </li>
+        <li>Qustions, comments?</li>
+        <li>(optional) I'll talk about other stuff to fill in the hour</li>
+      </ul>
+    </section>
+    <nav id='nav'>
+      <ul>
+        <li class='main-nav'>About Me</li>
+        <li class='main-nav'>Purpose Of This</li>
+        <li class='main-nav'>
+          VimScript Talk
+          <ul class='subnav'>
+            <li>What is Vimscript</li>
+            <li>The Basics</li>
+            <li>Examples of Use</li>
+            <li>Customization & Hacking</li>
+            <li>Resources and Support</li>
+          </ul>
+        </li>
+        <li class='main-nav'>Questions</li>
+      </ul>
+    </nav>
+    <section class='slide' id='aboutme'>
+      <h2>
+        Me (Matt Sacks)
+      </h2>
+      <img class='logo' id='simple-logo' src='images/simple.png' />
+      <h4>
+        I'm a front-end engineer at Simple
+      </h4>
+      <img class='logo' id='wolfram-logo' src='images/spikey.png' />
+      <h4>
+        I used to work at Wolfram|Alpha
+      </h4>
+      <img class='logo' id='vim-logo' src='images/vim.png' />
+      <h4>
+        I like Vim
+      </h4>
+      <h5>
+        I'm on twitter
+        <a href='http://twitter.com/mattsa' id='twitter'>@mattsa</a>
+        and github
+        <a href='http://github.com/mattsa' id='github'>/mattsa</a>
+      </h5>
+    </section>
+    <section class='slide' id='meetup'>
+      <h2>Vim User's Group:wq</h2>
+      <h6>(pending title)</h6>
+      <ul>
+        <li>This is mostly just for fun</li>
+        <li>Worth sharing cool things</li>
+        <li>To annoy co-workers less</li>
+        <img src='images/vim-guy.png' />
+        <li>I just want to see what happens</li>
+      </ul>
+    </section>
+    <section class='talk-slide slide' id='talk-title'>
+      <h2>VimScript and Why It's Not Scary</h2>
+      <h5>
+        General consensus is that VimScript sucks
+        <br />
+        <small>A total ghetto, weird obtuse syntax, ShitScript</small>
+      </h5>
+      <h5>
+        You want to write a plugin and decide to take a look at @tpope's code
+        <br />
+        <small>Then you see this</small>
+        <img id='tpope-code' src='images/tpope-code.png' />
+      </h5>
+      <h5 class='space'>
+        Some douchebag's .vimrc or plugin library is cramping your style
+        <br />
+        <small>You probably have no clue what went in there and what's going on</small>
+      </h5>
+      <h5>
+        But I'm going to tell you it's not that bad
+        <br />
+        <small>You've already written VimScript even if you don't know it</small>
+      </h5>
+      <h5>
+        It has a quirky api but the language itself is pretty flexible
+        <br />
+        <small>I think it's pretty fun</small>
+      </h5>
+    </section>
+    <section class='talk-slide slide' id='talk-whatis'>
+      <h2>What is that VimL thing on GitHub?</h2>
+      <h5>
+        It's just the name for functions you use to script to ex commands in Vim
+        <br />
+        <small>
+          If you've written any lines in your .vimrc, that's VimScript
+        </small>
+        <br />
+        <code>:split</code>
+        <code>:wq</code>
+        <code>:%s/foo/bar/g</code>
+      </h5>
+      <h5>It has types: an array is called a List and a hashmap is a Dictionary</h5>
+      <h5>
+        Based on script-local functions and regular expressions
+        <br />
+        <small>
+          Perl-style syntax is available with
+          <code>\v</code>
+        </small>
+      </h5>
+      <h5>You use it to do pretty much anything in Vim</h5>
+    </section>
+    <section class='talk-slide slide' id='talk-steps'>
+      <h2>Baby Steps</h2>
+      <h5>
+        Create a variable
+        <br />
+        <img class='code-img' src='images/first-variable.png' />
+        <img class='code-img' src='images/first-list.png' />
+      </h5>
+      <h5>
+        Go through a loop
+        <br />
+        <img class='code-img' src='images/loop-code.png' />
+        <img class='code-img one-line' id='one-loop' src='images/oneline-loop-code.png' />
+      </h5>
+      <h5>
+        Call a function
+        <br />
+        <img class='code-img' src='images/call-function.png' />
+      </h5>
+      <h5>
+        Write a command
+        <br />
+        <img class='code-img' src='images/first-command.png' />
+      </h5>
+      <h5>
+        Execute a file
+        <br />
+        <img class='code-img' src='images/source.png' />
+        <img class='code-img' id='first-autocmd' src='images/first-autocmd.png' />
+      </h5>
+    </section>
+    <section class='talk-slide slide' id='talk-examples'>
+      <h2>What can I write with this?</h2>
+      <h5>
+        Let's delete all
+        <code>< span ></code>
+        tags and put them in a string
+        <br />
+        <img class='code-img' src='images/span-list.png' />
+        <img class='code-img' src='images/removespans.png' />
+      </h5>
+    </section>
+    <section class='talk-slide slide' id='talk-customization'>
+      <h2>That's cool.. but why?</h2>
+      <h5>
+        Make custom stuff to automate repetitive actions
+        <br />
+        <img class='code-img' src='images/tabtoggle.png' />
+        <img class='code-img' src='images/css-sort.png' />
+      </h5>
+      <h5>
+        Tailor to your workflow
+        <br />
+        <img class='code-img' src='images/top-grep.png' />
+        <img class='code-img' src='images/gcached.png' />
+      </h5>
+    </section>
+    <section class='talk-slide slide' id='talk-resources'>
+      <h2>I'm already stuck</h2>
+      <h4>Plenty of resources available to help you learn</h4>
+      <ul>
+        <li>#vim on Freenode</li>
+        <li>
+          <code>:help {whatever}</code>
+          <code>:helpgrep {regex}</code>
+          <code>:help vim-script</code>
+        </li>
+        <li>
+          VimCasts (
+          <a>vimcasts.org</a>
+          )
+        </li>
+        <li>
+          <a>http://learnvimscriptthehardway.stevelosh.com/</a>
+          or
+          <a>bit.ly/vim-script</a>
+        </li>
+        <li>Reading other plugin code from GitHub & vim.org</li>
+        <li>
+          Use the built in debugger with
+          <code>:debug call Function()</code>
+        </li>
+        <li>#vim on Freenode</li>
+      </ul>
+    </section>
+    <section class='slide' id='questions'>
+      <h2>Closing Remarks</h2>
+      <h5>Thanks for coming!</h5>
+      <h5>Feel free to ask me questions anytime</h5>
+      <h5>Any input on the meetup? Things you'd like to see?</h5>
+      <h5>Questions or comments about VimScript?</h5>
+    </section>
+  </body>
+</html>
